@@ -1,52 +1,49 @@
-# OMC SDK
-
-
-OMC SDK is full fledged Push SDK with RRT, Geofence, Beacon events sent to Infinity.
+# Oracle Marketing Cloud SDK for iOS
 
 ## Configuration
 
 ### Configure OMC SDK
 
-- Adding the OMC SDK Framework
+- Adding the OMC SDK Framework.
     - Download the latest framework binary.
-    - Drag and Drop the framework into your project. (select Copy when prompted for adding reference)
+    - Drag and Drop the framework into your project. (select Copy when prompted for adding reference).
     - In your application target setting, add the OMCSDK.framework to the Embedded Binaries section.
     - Ensure that in application target build settings, Framework Search Path is set to correct location of OMC.framework.
     
 ### Configure Responsys
+  - Follow the Step 1, Step 3 through Step 8 to configure OMC SDK from [Configure Responsys][PushRef].
 
-  - Follow the Step 1, Step 3 to Step 8 configure OMC SDK from [Configure Responsys][PushRef]
-
-### Configure Infinity
-To configure Infinity, application need to have Oracle.plist. It contains the infinity configuration.
-  - Oracle.plist
-    - Download the [Oracle.plist][OraclePlistRef]
+### Configure Oracle Infinity
+To configure Infinity in the app, you will need the `oracle.plist` file which contains the Infinity configuration.
+  - oracle.plist
+    - Download the [oracle.plist][OraclePlistRef] (right click and choose save link as).
     - Drag and Drop it into your application Xcode Project.
-    - Open the Oracle.plist and change the value of `ora_dc_account_guid` to the value of your team/configuration in Infinity.
+    - Open the `oracle.plist` and change the value of `ora_dc_account_guid` to the value of your team/configuration in Infinity.
         - How to get the `ora_dc_account_guid`:
-            - login to [Infinity][InfinityRef]
+            - Login to [Infinity][InfinityRef]
             - Select the team (if multiple teams are listed).
             - Select the profile icon (on top right corner).
             - Guid is displayed below your team name.
 ### Test
 
   - Login in [Infinity][InfinityRef]
-  - Select Stream
+  - Select Streams.
     + [Streams reference][StreamRef]
-  - Start the Stream
- - Trigger event e.g.:
+  - Start the Stream.
+  - Trigger event e.g.:
 
-```swift
-[[PushIOManager sharedInstance] trackEvent:@"$PurchasedCart" properties:@{@"pid":@"165SFDFD121", @"pname":@"Shirt"}];
-``` 
-  - Stream should show the event i.e.: `$PurchasedCart` captured along with other metadata.
-  
-  ## Oracle Marketing Cloud SDK for iOS Documentation
-* [Integration Guide][Docs]
+   ```swift
+     [[PushIOManager sharedInstance] trackEvent:@"$PurchasedCart" properties:@{@"pid":@"165SFDFD121", @"pname":@"Shirt"}];
+   ``` 
+  - Streams should show the event i.e.: `$PurchasedCart` captured along with other metadata.
 
 [PushRef]: <https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCFB/ios/step-by-step/>
 [InfinityRef]: <http://app.oracleinfinity.com/>
 [StreamRef]: <https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCHA/Help/streams.htm>
 [OraclePlistRef]: <https://raw.githubusercontent.com/pushio/omc-ios/master/oracle.plist>
-[Docs]: <https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCFB/ios/>
 
+
+## Contact
+* Support: [My Oracle Support](http://support.oracle.com)
+
+Copyright © 2019, Oracle Corporation and/or its affiliates. All rights reserved. Oracle and Java are registered trademarks of Oracle and/or its affiliates. Other names may be trademarks of their respective owners.
